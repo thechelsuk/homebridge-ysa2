@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Get Version, Description, and Commit Message
+      - name: Get Version and Description
         id: get_data
         run: |
           echo "version=v$(node -p 'require("./package.json").version')" >> "$GITHUB_OUTPUT"
@@ -42,11 +42,6 @@ jobs:
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-          {
-            echo "message<<EOF"
-            git log -1 --pretty=%B | grep -v '^Signed-off-by:' || true
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
 
       - name: Check if Tag Exists
         id: check_tag
@@ -56,6 +51,19 @@ jobs:
           else
             echo "tag_exists=false" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Find the previous release
+        id: previous
+        if: steps.check_tag.outputs.tag_exists == 'false'
+        run: echo "tag=$(git tag --list --sort=-version:refname | head -n1)" >> "$GITHUB_OUTPUT"
+
+      - name: Build release notes
+        id: notes
+        if: steps.check_tag.outputs.tag_exists == 'false'
+        uses: thechelsuk/workflows/.github/actions/release-notes@main
+        with:
+          previous: ${{ steps.previous.outputs.tag }}
+          description: ${{ steps.get_data.outputs.description }}
 
       - name: Create and Push Tag
         if: steps.check_tag.outputs.tag_exists == 'false'
@@ -78,14 +86,7 @@ jobs:
           name: ${{ steps.get_data.outputs.version }}
           make_latest: true
           files: ${{ steps.pack.outputs.tarball }}
-          body: |
-            ## About
-
-            ${{ steps.get_data.outputs.description }}
-
-            ## Recent Changes
-
-            ${{ steps.get_data.outputs.message }}
+          body_path: ${{ steps.notes.outputs.notes_file }}
           draft: false
           prerelease: ${{ contains(steps.get_data.outputs.version, '-') }}
 
