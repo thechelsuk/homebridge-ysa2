@@ -1,6 +1,6 @@
 // Helper functions for YaleSyncPlatform
 import { PanelState } from './yale/YaleModels';
-import { CharacteristicValue } from 'homebridge';
+import type { CharacteristicValue } from 'homebridge';
 
 
 // Yale has a single part-arm mode ('home'); HomeKit has both Stay and Night.

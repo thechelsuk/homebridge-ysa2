@@ -3,7 +3,7 @@ import { platformConfigDecoder } from './YaleSyncPlatformConfig';
 import { ContactSensor, MotionSensor, Panel, PanelState, MotionSensorState, ContactSensorState, Sensor } from './yale/YaleModels';
 import { modeToCurrentState, modeToTargetState, targetStateToString, targetStateToMode, currentStateToString, PartialArmState } from './YaleSyncHelpers';
 import wait from './Wait';
-import { API, DynamicPlatformPlugin, Logger as HBLogger, PlatformConfig, PlatformAccessory as HBPlatformAccessory, CharacteristicValue } from 'homebridge';
+import type { API, DynamicPlatformPlugin, Logger as HBLogger, PlatformConfig, PlatformAccessory as HBPlatformAccessory, CharacteristicValue } from 'homebridge';
 
 
 const pluginName = 'homebridge-ysa2';
