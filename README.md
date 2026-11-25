@@ -1,8 +1,12 @@
 # homebridge-ysa2 - Homebridge 2 support for Yale Sync Alarms
 
-[![verified-by-homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=for-the-badge&logoColor=%23FFFFFF&logo=homebridge)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
+[![Verified by Homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=for-the-badge&logoColor=%23FFFFFF&logo=homebridge)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 
 Homebridge plugin for the [Yale Sync Smart Home Alarm](https://www.yale.co.uk/en/yale/couk/products/smart-living/smart-home-alarms/sync-smart-alarm/) and [Yale Smart Home Alarm](https://www.yale.co.uk/en/yale/couk/products/smart-living/smart-home-alarms/smart-home-alarm-starter-kit/).
+
+## Verified by Homebridge
+
+This is a [Homebridge Verified plugin](https://github.com/homebridge/plugins/wiki/Verified-Plugins), which means the Homebridge project team has reviewed it and it meets their requirements for good practice and a trouble-free setup. It was verified in November 2026, and it's tested on every supported Node LTS release (22, 24 and 26).
 
 ## Usage
 
@@ -62,4 +66,8 @@ Visual Studio Code is configured to use the version of typescript installed as a
 
 ## Support
 
-This plugin is free and maintained in my spare time. If it's useful to you, you can support it through [GitHub Sponsors](https://github.com/sponsors/thechelsuk) or [Ko-fi](https://ko-fi.com/thechelsuk).
+Made with love in the UK by [thechels.uk](https://thechels.uk). You can see my other projects at [thechels.uk/projects](https://thechels.uk/projects).
+
+For support, raise a [GitHub issue](https://github.com/thechelsuk/homebridge-ysa2/issues) or reach out on [socials](https://links.thechels.uk).
+
+If you can support me and continued ongoing development, you can do so through [GitHub Sponsors](https://github.com/sponsors/thechelsuk) or [Ko-fi](https://ko-fi.com/thechelsuk).
